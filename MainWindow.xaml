@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AppPortariaControle"
         mc:Ignorable="d"
-        Title="Controle Portaria" Height="700" Width="1074" MinWidth="1074" MinHeight="700">
+        Title="Controle Portaria" Height="700" Width="1074" MinWidth="1074" MinHeight="700"
+        WindowStartupLocation="CenterScreen">
 
     <Grid>
         <!-- Camada 1: Gradiente Radial -->
@@ -41,47 +42,94 @@
 
         <!-- Labels -->
         <Grid>
+            <Label Content="Usuario:" Width="80" Height="50" FontSize="18" FontWeight="Bold" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="0,200,345,0"/>
+            <Label Content="Senha:" Width="80" Height="50" FontSize="18" FontWeight="Bold" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="0,320,345,0"/>
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,260,0,0">
-                <!-- Label Usuário com Ícone -->
+                <!-- TextBox Usuário com Ícone -->
                 <Border Background="#1AFFFFFF"
-                    BorderBrush="#FF000000"
-                BorderThickness="1"
-                CornerRadius="10"
-                Padding="10"
-                Margin="0,0,0,10">
+            BorderBrush="#FF000000"
+            BorderThickness="1"
+            CornerRadius="10"
+            Padding="10"
+            Margin="0,0,0,10">
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                         <Image Source="Imagens/icon-user.png"
-                            Width="24"
-                            Height="24"
-                            Margin="0,0,10,0"/>
-                            <Label Content="Usuário"
-                       HorizontalAlignment="Left"
-                       FontWeight="Bold"
-                       VerticalAlignment="Center"
-                       FontSize="16"
-                       Foreground="White" />
+                   Width="24"
+                   Height="24"
+                   Margin="0,0,10,0"/>
+                        <TextBox x:Name="txtUsuario" Width="200" Height="30"
+                     FontWeight="Bold"
+                     FontSize="16"
+                     Foreground="White"
+                     Background="Transparent"
+                     BorderThickness="0"
+                     VerticalAlignment="Center"
+                     Margin="0" TextChanged="txtUsuario_TextChanged"/>
                     </StackPanel>
                 </Border>
                 <Border Background="#1AFFFFFF" 
-                    BorderBrush="#FF000000"
-                BorderThickness="1"
-                CornerRadius="10"
-                Padding="10">
+            BorderBrush="#FF000000"
+            BorderThickness="1"
+            CornerRadius="10"
+            Padding="10">
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                         <Image Source="Imagens/icone-senha.png"
-                            Width="24"                          
-                            Height="24"
-                            Margin="0,0,10,0"/>
-                        <Label Content="Senha"
-                       HorizontalAlignment="Left"
-                       VerticalAlignment="Center"
-                       FontWeight="Bold"
-                       FontSize="16"
-                       Width="140"
-                       Foreground="White"/>
+                   Width="24"                          
+                   Height="24"
+                   Margin="0,0,10,0"/>
+                        <PasswordBox x:Name="txtSenha"  Width="200" Height="30"
+                     FontWeight="Bold"
+                     FontSize="16"
+                     Foreground="White"
+                     Background="Transparent"
+                     BorderThickness="0"
+                     VerticalAlignment="Center"
+                     Margin="0"/>
                     </StackPanel>
                 </Border>
             </StackPanel>
+
+            <Button x:Name="btnEntrar" Content="Entrar" Width="140" Height="40"
+        HorizontalAlignment="Center" VerticalAlignment="Center"
+        FontWeight="Bold" FontSize="16"
+        Foreground="Black" FontFamily="Arial" Margin="0,480,0,0"
+        IsDefault="True"
+        Background="#1AFFFFFF" BorderBrush="#FF000000" BorderThickness="1"
+        Padding="10" Cursor="Hand" Click="btnEntrar_Click_1">
+                <Button.Resources>
+                    <Style TargetType="Button">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Border x:Name="border" Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="10"
+                                Padding="{TemplateBinding Padding}">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"
+                                              Content="{TemplateBinding Content}" />
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <!-- Trigger para mudar a cor de fundo ao passar o mouse -->
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter TargetName="border" Property="Background" Value="#FFCCCCCC"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <!-- Trigger para mudar a cor da borda ao passar o mouse -->
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="BorderBrush" Value="#FFAAAAAA"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Resources>
+            </Button>
+
+
+
         </Grid>
 
 
