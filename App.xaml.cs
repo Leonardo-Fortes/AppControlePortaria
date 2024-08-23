@@ -10,7 +10,7 @@ namespace AppPortariaControle
         {
             base.OnExit(e);
 
-            // Aqui você pode adicionar código para liberar recursos ou salvar estados antes da aplicação fechar
+            
         }
     }
 }

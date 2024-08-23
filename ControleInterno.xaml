@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AppPortariaControle"
         mc:Ignorable="d"
-        Title="ControleInterno" Height="450" Width="800">
+        Title="ControleInterno" Height="600" Width="1024" MinHeight="600" MinWidth="1024"
+        WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.Background>
             <RadialGradientBrush GradientOrigin="0.5,-0.2071" Center="0.5,0.5" RadiusX="0.5" RadiusY="0.5">
@@ -15,32 +16,49 @@
             </RadialGradientBrush>
         </Grid.Background>
         <Grid>
-   
+
             <Grid>
                 <Label Width="205" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Content="Digite a placa do Veiculo:" FontWeight="Bold"
                        FontSize="16" FontFamily="Arial" Foreground="White" Margin="20,31,0,0" ></Label>
                 <TextBox Width="130" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" x:Name="TxbPlaca" Margin="230,34,0,0" ></TextBox>
+                <Button x:Name="btnBuscar" Click="btnBuscar_Click" Width="70" Height="25" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,34,140,0" Content="Buscar"></Button>
             </Grid>
             <Grid>
-                
-                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Height="150">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="329*"/>
+                    <ColumnDefinition Width="71*"/>
+                </Grid.ColumnDefinitions>
+
+               
+            </Grid>
+            <Grid Width="780" Height="350" Margin="0,60,0,0">
+                <DataGrid x:Name="dataGridVeiculos" AutoGenerateColumns="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10"
+                          IsReadOnly="True">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Placa" Binding="{Binding Placa}" IsReadOnly="True" Width="*"/>
+                        <DataGridTextColumn Header="Tipo" Binding="{Binding Tipo}" IsReadOnly="True" Width="*"/>
+                        <DataGridTextColumn Header="Modelo" Binding="{Binding Modelo}" IsReadOnly="True" Width="*"/>
+                        <DataGridTextColumn Header="Motorista" Binding="{Binding Motorista}" IsReadOnly="True" Width="*"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Height="150" Grid.ColumnSpan="2" Margin="230,260,0,0">
                     <!-- Botão Entrada -->
                     <Button x:Name="btnEntrada" Content="Entrada" Width="130" Height="35"
-                    FontWeight="Bold" FontSize="12" Foreground="White" Cursor="Hand"
-                    Background="#FF4CAF50" BorderBrush="#FF388E3C" BorderThickness="2"
-                    Padding="0" Margin="120,28,0,20" RenderTransformOrigin="0.5,0.5" Click="btnEntrada_Click">
+     FontWeight="Bold" FontSize="12" Foreground="White" Cursor="Hand"
+     Background="#FF4CAF50" BorderBrush="#FF388E3C" BorderThickness="2"
+     Padding="0" Margin="125,28,0,20" RenderTransformOrigin="0.5,0.5" Click="btnEntrada_Click">
                         <Button.Resources>
                             <Style TargetType="Button">
                                 <Setter Property="Template">
                                     <Setter.Value>
                                         <ControlTemplate TargetType="Button">
                                             <Border x:Name="border" Background="{TemplateBinding Background}"
-                                            BorderBrush="{TemplateBinding BorderBrush}"
-                                            BorderThickness="{TemplateBinding BorderThickness}"
-                                            CornerRadius="15"
-                                            Padding="{TemplateBinding Padding}">
+                             BorderBrush="{TemplateBinding BorderBrush}"
+                             BorderThickness="{TemplateBinding BorderThickness}"
+                             CornerRadius="15"
+                             Padding="{TemplateBinding Padding}">
                                                 <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"
-                                                          Content="{TemplateBinding Content}" />
+                                           Content="{TemplateBinding Content}" />
                                             </Border>
                                             <ControlTemplate.Triggers>
                                                 <!-- Trigger para mudar a cor de fundo ao passar o mouse -->
@@ -79,21 +97,21 @@
 
                     <!-- Botão Saída -->
                     <Button x:Name="btnSaida" Content="Saída" Width="130" Height="35" VerticalAlignment="Center" HorizontalAlignment="Center"
-                    FontWeight="Bold" FontSize="12" Foreground="White" Cursor="Hand"
-                    Background="#FFF44336" BorderBrush="#FFD32F2F" BorderThickness="2"
-                    Padding="5" Margin="400,-76,0,0">
+     FontWeight="Bold" FontSize="12" Foreground="White" Cursor="Hand"
+     Background="#FFF44336" BorderBrush="#FFD32F2F" BorderThickness="2"
+     Padding="5" Margin="400,-76,0,0">
                         <Button.Resources>
                             <Style TargetType="Button">
                                 <Setter Property="Template">
                                     <Setter.Value>
                                         <ControlTemplate TargetType="Button">
                                             <Border x:Name="border" Background="{TemplateBinding Background}"
-                                            BorderBrush="{TemplateBinding BorderBrush}"
-                                            BorderThickness="{TemplateBinding BorderThickness}"
-                                            CornerRadius="15"
-                                            Padding="{TemplateBinding Padding}">
+                             BorderBrush="{TemplateBinding BorderBrush}"
+                             BorderThickness="{TemplateBinding BorderThickness}"
+                             CornerRadius="15"
+                             Padding="{TemplateBinding Padding}">
                                                 <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"
-                                                          Content="{TemplateBinding Content}" />
+                                           Content="{TemplateBinding Content}" />
                                             </Border>
                                             <ControlTemplate.Triggers>
                                                 <!-- Trigger para mudar a cor de fundo ao passar o mouse -->
@@ -122,17 +140,6 @@
                         </Button.Resources>
                     </Button>
                 </StackPanel>
-            </Grid>
-            <Grid Width="780" Height="350" Margin="0,60,0,0">
-                <DataGrid x:Name="dataGridVeiculos" AutoGenerateColumns="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10"
-                          MouseDoubleClick="dataGridVeiculos_MouseDoubleClick">>
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="Placa" Binding="{Binding Placa}" IsReadOnly="True" Width="*"/>
-                        <DataGridTextColumn Header="Tipo" Binding="{Binding Tipo}" IsReadOnly="True" Width="*"/>
-                        <DataGridTextColumn Header="Modelo" Binding="{Binding Modelo}" IsReadOnly="True" Width="*"/>
-                        <DataGridTextColumn Header="Motorista" Binding="{Binding Motorista}" IsReadOnly="True" Width="*"/>
-                    </DataGrid.Columns>
-                </DataGrid>
             </Grid>
 
         </Grid>
