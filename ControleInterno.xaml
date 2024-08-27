@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AppPortariaControle"
         mc:Ignorable="d"
-        Title="ControleInterno" Height="600" Width="1024" MinHeight="600" MinWidth="1024"
+        Title="Controle Portaria" Height="700" Width="1074" MinWidth="1074" MinHeight="700" FontSize="16"
         WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.Background>
@@ -20,8 +20,15 @@
             <Grid>
                 <Label Width="205" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Content="Digite a placa do Veiculo:" FontWeight="Bold"
                        FontSize="16" FontFamily="Arial" Foreground="White" Margin="20,31,0,0" ></Label>
-                <TextBox Width="130" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" x:Name="TxbPlaca" Margin="230,34,0,0" ></TextBox>
-                <Button x:Name="btnBuscar" Click="btnBuscar_Click" Width="70" Height="25" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,34,140,0" Content="Buscar"></Button>
+                <TextBox Width="130" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" x:Name="TxbPlaca" Margin="230,34,0,0" FontSize="16" ></TextBox>
+                <Button x:Name="btnBuscar" Click="BtnBuscar_Click" Width="70" Height="28" Cursor="Hand" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,32,230,0" Padding="0" Content="Buscar" FontFamily="Arial" Foreground="White">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="Black"/>
+                            <GradientStop Color="#FF518CFF" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
             </Grid>
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -29,7 +36,7 @@
                     <ColumnDefinition Width="71*"/>
                 </Grid.ColumnDefinitions>
 
-               
+
             </Grid>
             <Grid Width="780" Height="350" Margin="0,60,0,0">
                 <DataGrid x:Name="dataGridVeiculos" AutoGenerateColumns="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10"
@@ -43,10 +50,10 @@
                 </DataGrid>
                 <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Height="150" Grid.ColumnSpan="2" Margin="230,260,0,0">
                     <!-- Botão Entrada -->
-                    <Button x:Name="btnEntrada" Content="Entrada" Width="130" Height="35"
+                    <Button x:Name="BtnEntrada" Content="Entrada" Width="130" Height="35"
      FontWeight="Bold" FontSize="12" Foreground="White" Cursor="Hand"
      Background="#FF4CAF50" BorderBrush="#FF388E3C" BorderThickness="2"
-     Padding="0" Margin="125,28,0,20" RenderTransformOrigin="0.5,0.5" Click="btnEntrada_Click">
+     Padding="0" Margin="125,28,0,20" RenderTransformOrigin="0.5,0.5" Click="BtnEntrada_Click">
                         <Button.Resources>
                             <Style TargetType="Button">
                                 <Setter Property="Template">
@@ -96,10 +103,10 @@
                     </Button>
 
                     <!-- Botão Saída -->
-                    <Button x:Name="btnSaida" Content="Saída" Width="130" Height="35" VerticalAlignment="Center" HorizontalAlignment="Center"
-     FontWeight="Bold" FontSize="12" Foreground="White" Cursor="Hand"
-     Background="#FFF44336" BorderBrush="#FFD32F2F" BorderThickness="2"
-     Padding="5" Margin="400,-76,0,0">
+                    <Button x:Name="BtnSaida" Content="Saída" Width="130" Height="35" VerticalAlignment="Center" HorizontalAlignment="Center"
+                         FontWeight="Bold" FontSize="12" Foreground="White" Cursor="Hand"
+                         Background="#FFF44336" BorderBrush="#FFD32F2F" BorderThickness="2"
+                         Padding="5" Margin="400,-76,0,0" Click="BtnSaida_Click">
                         <Button.Resources>
                             <Style TargetType="Button">
                                 <Setter Property="Template">

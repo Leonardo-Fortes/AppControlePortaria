@@ -64,7 +64,7 @@
                      Background="Transparent"
                      BorderThickness="0"
                      VerticalAlignment="Center"
-                     Margin="0" TextChanged="txtUsuario_TextChanged"/>
+                     Margin="0" />
                     </StackPanel>
                 </Border>
                 <Border Background="#1AFFFFFF" 

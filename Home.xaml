@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AppPortariaControle"
         mc:Ignorable="d"
-        Title="Controle Portaria" Height="450" Width="800"
+        Title="Controle Portaria" Height="700" Width="1074" MinWidth="1074" MinHeight="700" FontSize="16"
         WindowStartupLocation="CenterScreen"
         Closing="Home_Closing">
     <Grid>
@@ -18,7 +18,7 @@
                 </RadialGradientBrush>
             </Grid.Background>
         </Grid>
-        <Menu VerticalAlignment="Top" FontWeight="Bold">
+        <Menu VerticalAlignment="Top" FontWeight="Bold" FontSize="16">
             <!-- Menu Item 1 -->
             <MenuItem Header="Inicio">
                 <MenuItem Header="Trocar Usuário" />

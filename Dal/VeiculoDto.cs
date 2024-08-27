@@ -8,10 +8,10 @@ namespace AppPortariaControle.Dal
 {
     public class VeiculoDto
     {
-        public string Placa { get; set; }
-        public string Tipo { get; set; }
-        public string Modelo { get; set; }
-        public string Motorista { get; set; }
+        public string? Placa { get; set; }
+        public string? Tipo { get; set; }
+        public string? Modelo { get; set; }
+        public string? Motorista { get; set; }
 
     }
 }

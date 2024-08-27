@@ -1,16 +1,6 @@
 ﻿using AppPortariaControle.Dal;
-using Microsoft.Identity.Client;
-using System.Text;
+using Microsoft.EntityFrameworkCore;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-
 namespace AppPortariaControle
 {
     /// <summary>
@@ -18,15 +8,14 @@ namespace AppPortariaControle
     /// </summary>
     public partial class MainWindow : Window
     {
-        public static string? UsuarioLogado;
-        public MainWindow()
+
+        public MainWindow() 
         {
             InitializeComponent();
-
         }
+        public static string? UsuarioLogado;
 
-
-        private void btnEntrar_Click_1(object sender, RoutedEventArgs e)
+        private async void btnEntrar_Click_1(object sender, RoutedEventArgs e)
         {
             string usuario = txtUsuario.Text;
             string senha = txtSenha.Password;
@@ -51,9 +40,6 @@ namespace AppPortariaControle
             }
         }
 
-        private void txtUsuario_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
+    
     }
 }
