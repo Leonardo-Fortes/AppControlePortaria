@@ -28,7 +28,7 @@
             </MenuItem>
             <MenuItem Header="Controle" Click="MenuItem_Click">
                 <MenuItem Header="Interno" Click="MenuInterno_Click"></MenuItem>
-                <MenuItem Header="Visitante"></MenuItem>
+                <MenuItem Header="Visitante" Click="MenuVisitante_Click"></MenuItem>
             </MenuItem>
         </Menu>
     </Grid>

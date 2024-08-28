@@ -10,12 +10,24 @@
     <Compile Update="ControleInterno.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="ControleVisitante.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Dal\ColabReponsavel.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Home.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="ControleInterno.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ControleVisitante.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Dal\ColabReponsavel.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Home.xaml">

@@ -38,6 +38,23 @@ namespace AppPortariaControle
             }
         }
 
+
+        private void MenuVisitante_Click(object sender, RoutedEventArgs e)
+        {
+            // Evite criar várias instâncias de ControleInterno
+            var existingWindow = Application.Current.Windows.OfType<ControleVisitante>().FirstOrDefault();
+            if (existingWindow == null)
+            {
+                ControleVisitante controleVisitante = new ControleVisitante();
+                controleVisitante.Show();
+            }
+            else
+            {
+                existingWindow.Activate(); // Ativar a janela existente
+            }
+        }
+
+
         private void Home_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             if (!fechamentoConfirmado)

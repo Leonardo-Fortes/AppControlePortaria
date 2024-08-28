@@ -145,3 +145,5 @@ C:\Users\leonardo\source\repos\AppPortariaControle\AppPortariaControle\bin\Debug
 C:\Users\leonardo\source\repos\AppPortariaControle\AppPortariaControle\bin\Debug\net8.0-windows\runtimes\win-x86\native\WebView2Loader.dll
 C:\Users\leonardo\source\repos\AppPortariaControle\AppPortariaControle\bin\Debug\net8.0-windows\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
 C:\Users\leonardo\source\repos\AppPortariaControle\AppPortariaControle\obj\Debug\net8.0-windows\App.baml
+C:\Users\leonardo\source\repos\AppPortariaControle\AppPortariaControle\obj\Debug\net8.0-windows\ControleVisitante.g.cs
+C:\Users\leonardo\source\repos\AppPortariaControle\AppPortariaControle\obj\Debug\net8.0-windows\ControleVisitante.baml

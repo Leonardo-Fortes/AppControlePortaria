@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 C:\Users\leonardo\source\repos\AppPortariaControle\AppPortariaControle\App.xaml
-32019366520
+41376155568
 
-11-1890176175
+161722520840
 239-836881492
-ControleInterno.xaml;Home.xaml;MainWindow.xaml;
+ControleInterno.xaml;ControleVisitante.xaml;Home.xaml;MainWindow.xaml;
 
 False
 

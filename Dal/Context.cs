@@ -23,7 +23,11 @@ namespace AppPortariaControle.Dal
 
         public DbSet<Usuario> Usuarios { get; set; }
         
+        public DbSet<PrestadorServicoEmp> prestadorServicoEmps { get; set; }
 
+        public DbSet<PrestadorServicoFunc> prestadorServicoFuncs { get; set; }
+
+        public DbSet<RegistroPrestadorServico> RegistroPrestadorServicos { get; set; }
     }
         
 }
