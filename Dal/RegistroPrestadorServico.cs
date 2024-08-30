@@ -35,6 +35,12 @@ namespace AppPortariaControle.Dal
         public DateTime Entrada { get; set; }
 
         [Column("Saida")]
-        public DateTime Saida { get; set; }
+        public DateTime? Saida { get; set; }
+
+        [Column("ResponsavelControleEntrada")]
+        public string? ResponsavelControleEntrada { get; set; }
+
+        [Column("ResponsavelControleSaida")]
+        public string? ResponsavelControleSaida { get; set; }
     }
 }

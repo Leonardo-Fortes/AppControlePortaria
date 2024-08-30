@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 C:\Users\leonardo\source\repos\AppPortariaControle\AppPortariaControle\App.xaml
-51487520257
+71325072349
 
-19-1224949063
+21-2026178253
 239-836881492
-ControleInterno.xaml;ControleVisitante.xaml;Dal\ColabReponsavel.xaml;Home.xaml;MainWindow.xaml;
+Views\AddEmpPrestadora.xaml;Views\AddFuncPrestador.xaml;Views\ColabReponsavel.xaml;Views\ControleInterno.xaml;Views\ControleVisitante.xaml;Views\Home.xaml;Views\MainWindow.xaml;
 
 True
 

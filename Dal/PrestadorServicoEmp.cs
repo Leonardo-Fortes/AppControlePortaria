@@ -19,5 +19,6 @@ namespace AppPortariaControle.Dal
         [Column("CNPJ")]
         public string? CNPJ { get; set; }
 
+        public ICollection<PrestadorServicoFunc> PrestadorServicoFuncs { get; set; }
     }
 }

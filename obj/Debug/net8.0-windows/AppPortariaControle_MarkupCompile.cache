@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 C:\Users\leonardo\source\repos\AppPortariaControle\AppPortariaControle\App.xaml
-41376155568
+71325072349
 
-161722520840
+19-177862340
 239-836881492
-ControleInterno.xaml;ControleVisitante.xaml;Home.xaml;MainWindow.xaml;
+Views\AddEmpPrestadora.xaml;Views\AddFuncPrestador.xaml;Views\ColabReponsavel.xaml;Views\ControleInterno.xaml;Views\ControleVisitante.xaml;Views\Home.xaml;Views\MainWindow.xaml;
 
 False
 

@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace AppPortariaControle
+namespace AppPortariaControle.Views
 {
     public partial class App : Application
     {

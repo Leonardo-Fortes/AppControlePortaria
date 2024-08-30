@@ -8,6 +8,7 @@ namespace AppPortariaControle.Dal
 {
     public class VisitanteDto
     {
+        public int ID { get; set; }
         public string? NomeEmp {  get; set; }
 
         public string? CNPJ { get; set; }

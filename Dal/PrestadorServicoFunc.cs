@@ -24,6 +24,7 @@ namespace AppPortariaControle.Dal
         [Column("RG")]
         public string? RG { get; set; }
 
+        [ForeignKey("PrestadorServicoEmp")]
         [Column("ID_Emp")]
         public int ID_Emp { get; set; }
 

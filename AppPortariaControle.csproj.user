@@ -7,33 +7,45 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="ControleInterno.xaml.cs">
+    <Compile Update="Views\AddEmpPrestadora.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="ControleVisitante.xaml.cs">
+    <Compile Update="Views\AddFuncPrestador.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Dal\ColabReponsavel.xaml.cs">
+    <Compile Update="Views\ControleInterno.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Home.xaml.cs">
+    <Compile Update="Views\ControleVisitante.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\ColabReponsavel.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Home.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="ControleInterno.xaml">
+    <Page Update="Views\AddEmpPrestadora.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="ControleVisitante.xaml">
+    <Page Update="Views\AddFuncPrestador.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Dal\ColabReponsavel.xaml">
+    <Page Update="Views\ControleInterno.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Home.xaml">
+    <Page Update="Views\ControleVisitante.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="MainWindow.xaml">
+    <Page Update="Views\ColabReponsavel.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Home.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
