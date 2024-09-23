@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AppPortariaControle.Views"
         mc:Ignorable="d"
-        Title="Cadastrar Prestador de Serviços" Width="730" Height="195" MaxHeight="195" MaxWidth="730" MinHeight="195" MinWidth="730"
+        Title="Cadastrar Prestador de Serviços" MaxHeight="195" MaxWidth="730" MinHeight="195" MinWidth="730"
         WindowStartupLocation="CenterScreen">
     <Grid Margin="10">
         <Label Content="Nome" Width="60" FontSize="16" VerticalAlignment="Top" HorizontalAlignment="Left"></Label>
@@ -15,11 +15,11 @@
         <Button Width="70" Height="25" FontSize="13" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="620,102,0,0" Content="Cadastrar" Click="BtnCadastro_Click" RenderTransformOrigin="0.786,0.562"></Button>
 
 
-        <ComboBox Name="comboBoxDocumento" HorizontalAlignment="Left" Margin="100,36,0,0" VerticalAlignment="Top" Width="60" Height="22" FontSize="12" FontWeight="Bold">
+        <ComboBox Name="comboBoxDocumento" HorizontalAlignment="Left" Margin="100,36,0,0" VerticalAlignment="Top" Width="60" Height="22" FontSize="12" FontWeight="Bold" SelectionChanged="ComboBox_SelectionChanged">
             <ComboBoxItem Content="CPF"/>
             <ComboBoxItem Content="RG"/>
         </ComboBox>
-        <Label Content="Empresa" Width="70" FontSize="16" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,66,0,0"/>
+        <Label Content="Empresa" Width="70" FontSize="16" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,66,0,0"/>
         <TextBox x:Name="txtCadNameEmp" Height="25" Width="515" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="100,72,0,0" FontSize="16" />
         <Button Width="70" Height="25" FontSize="13" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="620,72,0,0" Content="Buscar" Click="BtnBuscar_Click" RenderTransformOrigin="0.786,0.562"/>
 

@@ -9,6 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Imagens\icon-pesquisa.png" />
     <None Remove="Imagens\icon-user.png" />
     <None Remove="Imagens\icone-senha.png" />
     <None Remove="Imagens\logo2.png" />
@@ -27,6 +28,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Imagens\icon-pesquisa.png" />
     <Resource Include="Imagens\icon-user.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>

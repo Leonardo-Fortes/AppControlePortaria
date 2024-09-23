@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 C:\Users\leonardo\source\repos\AppPortariaControle\AppPortariaControle\App.xaml
-71325072349
+92107951135
 
-21-2026178253
+24586907888
 239-836881492
-Views\AddEmpPrestadora.xaml;Views\AddFuncPrestador.xaml;Views\ColabReponsavel.xaml;Views\ControleInterno.xaml;Views\ControleVisitante.xaml;Views\Home.xaml;Views\MainWindow.xaml;
+Views\AddEmpPrestadora.xaml;Views\AddFuncPrestador.xaml;Views\AdicionarVeiculo.xaml;Views\ColabReponsavel.xaml;Views\ControleInterno.xaml;Views\ControleVisitante.xaml;Views\Home.xaml;Views\ListarEmpresas.xaml;Views\MainWindow.xaml;
 
 True
 

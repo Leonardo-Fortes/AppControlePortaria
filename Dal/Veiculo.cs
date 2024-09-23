@@ -23,5 +23,11 @@ namespace AppPortariaControle.Dal
         [Column("Motorista")]
         public string? Motorista { get; set; }
 
+        [ForeignKey("Funcionario")]
+        [Column("ID_Func")]
+        public int IDFunc { get; set; }
+
+        public Funcionario? Funcionario { get; set; }
+
     }
 }

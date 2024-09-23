@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AppPortariaControle.Views"
         mc:Ignorable="d"
-        Title="Controle Portaria" Height="700" Width="1074" MinWidth="1074" MinHeight="700"
+        Title="Controle Portaria" Height="700" Width="1074" MinWidth="1074" MinHeight="700" MaxHeight="700" MaxWidth="1074"
         WindowStartupLocation="CenterScreen">
 
     <Grid>

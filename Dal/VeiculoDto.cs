@@ -13,5 +13,7 @@ namespace AppPortariaControle.Dal
         public string? Modelo { get; set; }
         public string? Motorista { get; set; }
 
+        public int ID_Func { get; set;  }
+
     }
 }

@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:AppPortariaControle.Views"
       mc:Ignorable="d" 
       d:DesignHeight="200" d:DesignWidth="400"
-      Title="ColabReponsavel" MaxHeight="200" MaxWidth="400"
+      Title="ColabReponsavel" MaxHeight="200" MaxWidth="400" MinHeight="200" MinWidth="400"
       WindowStartupLocation="CenterScreen">
 
     <Grid>

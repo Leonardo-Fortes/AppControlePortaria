@@ -9,10 +9,17 @@ namespace AppPortariaControle.Views
 {
     public partial class AddFuncPrestador : Window
     {
-        private int id;
-        public AddFuncPrestador()
+        private int id = 0;
+        private string name;
+        public AddFuncPrestador(string Name, int ID)
         {
             InitializeComponent();
+            name = Name;
+            if (name != null && ID != 0)
+            {
+                txtCadNameEmp.Text = name;
+                id = ID;
+            }
         }
 
         private async void BtnBuscar_Click(object sender, RoutedEventArgs e)
@@ -26,8 +33,16 @@ namespace AppPortariaControle.Views
                     u.NomeEmp
                 }).FirstOrDefaultAsync();
 
-                txtCadNameEmp.Text = buscarEmpresa.NomeEmp;
-                id = buscarEmpresa.ID;
+                if (buscarEmpresa != null)
+                {
+                    txtCadNameEmp.Text = buscarEmpresa.NomeEmp;
+                    id = buscarEmpresa.ID;
+                    name = buscarEmpresa.NomeEmp;
+                }
+                else
+                {
+                    MessageBox.Show("Empresa não encontrada, por favor consultar se a empresa já foi registrada", "Informação", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
             }
         }
 
@@ -44,6 +59,14 @@ namespace AppPortariaControle.Views
                 string cpf = null;
                 string rg = null;
 
+
+                if(name != null)
+                {
+                    name = txtCadNameEmp.Text;
+                }
+
+
+
                 // Verifica se o documento não é nulo ou vazio, e atribui ao CPF ou RG conforme o tipo de documento selecionado no ComboBox
                 if (!string.IsNullOrEmpty(documento))
                 {
@@ -58,22 +81,27 @@ namespace AppPortariaControle.Views
                             break;
                     }
 
-                    if (txtCadNameEmp.Text != null)
+                    if (name != null && id != 0)
                     {
-
-                        // Cria uma nova instância de PrestadorServicoFunc com o ID selecionado
-                        var add = new PrestadorServicoFunc()
+                        try
                         {
-                            NomeFunc = txtCadName.Text,
-                            CPF = cpf,
-                            RG = rg,
-                            ID_Emp = id
-                        };
+                            // Cria uma nova instância de PrestadorServicoFunc com o ID selecionado
+                            var add = new PrestadorServicoFunc()
+                            {
+                                NomeFunc = txtCadName.Text,
+                                CPF = cpf,
+                                RG = rg,
+                                ID_Emp = id
+                            };
 
-                        context.prestadorServicoFuncs.Add(add);
+                            context.prestadorServicoFuncs.Add(add);
 
-                        // Salva as mudanças de forma assíncrona
-                        await context.SaveChangesAsync();
+                            // Salva as mudanças de forma assíncrona
+                            await context.SaveChangesAsync();
+                        }catch (Exception ex)
+                        {
+                            MessageBox.Show("Erro ao cadastrar " + ex,"Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        }
 
                         MessageBox.Show("Registro salvo com sucesso!", "Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
                         this.Hide();
@@ -89,8 +117,23 @@ namespace AppPortariaControle.Views
                 }
             }
         }
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var selectedDocumentType = (comboBoxDocumento.SelectedItem as ComboBoxItem)?.Content.ToString();
 
-        
-        
+            if (selectedDocumentType == "CPF")
+            {
+                
+                txtCadDoc.MaxLength = 11; // CPF tem 11 dígitos (considerando apenas os números)
+            }
+            else if (selectedDocumentType == "RG")
+            {
+               
+                txtCadDoc.MaxLength = 9; // Ajuste conforme a regra para RG
+            }
+        }
+
+
+
     }
 }

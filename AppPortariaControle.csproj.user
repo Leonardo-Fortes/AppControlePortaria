@@ -13,6 +13,9 @@
     <Compile Update="Views\AddFuncPrestador.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\AdicionarVeiculo.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\ControleInterno.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -25,12 +28,18 @@
     <Compile Update="Views\Home.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\ListarEmpresas.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Views\AddEmpPrestadora.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\AddFuncPrestador.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\AdicionarVeiculo.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\ControleInterno.xaml">
@@ -43,6 +52,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Home.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\ListarEmpresas.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\MainWindow.xaml">

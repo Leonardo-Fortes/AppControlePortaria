@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AppPortariaControle.Views"
         mc:Ignorable="d"
-        Title="Controle Portaria" Height="700" Width="1090" MinWidth="1090" MinHeight="700" FontSize="16" MaxHeight="700" MaxWidth="1090"
+        Title="Controle Portaria"  MinWidth="1090" MinHeight="700" FontSize="16" MaxHeight="700" MaxWidth="1090"
         WindowStartupLocation="CenterScreen">
     <Grid>
         <!-- Container Principal -->
@@ -107,8 +107,12 @@
                 </StackPanel>
 
                 <!-- Botão Adicionar -->
-                <Button Content="Adicionar prestador de serviço" VerticalAlignment="Bottom" HorizontalAlignment="Left" FontFamily="Arial"
-                        Margin="10,0,0,97" FontSize="16" FontWeight="Bold" BorderBrush="{x:Null}" Width="270" Click="AdicionarPrestador_Click" Cursor="Hand"/>
+                <Button Content="Cadastrar prestador de serviço" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontFamily="Arial"
+                        Margin="0,0,0,97" FontSize="16" FontWeight="Bold" BorderBrush="{x:Null}" Width="270" Click="AdicionarPrestador_Click" Cursor="Hand"/>
+                <Button Content="Cadastrar Empresa" VerticalAlignment="Bottom" HorizontalAlignment="Left" FontFamily="Arial"
+                    Margin="10,0,0,97" FontSize="16" FontWeight="Bold" BorderBrush="{x:Null}" Width="200" Click="AdicionarPrestadorEmp_Click" Cursor="Hand"/>
+                <Button Content="Listar empresas cadastradas" VerticalAlignment="Bottom" HorizontalAlignment="Right" FontFamily="Arial"
+                    Margin="0,0,5,97" FontSize="16" FontWeight="Bold" BorderBrush="{x:Null}" Width="270" Click="ListarPrestadorEmp_Click" Cursor="Hand"/>
 
                 <!-- Fundo do Grid -->
                 <Grid.Background>
@@ -122,11 +126,11 @@
 
             <!-- Contêiner para CNPJ -->
             <Grid Margin="0,60,0,0">
-                <Label Width="210" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Content="Digite o CNPJ da Empresa"
+                <Label Width="210" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Content="Inserir nome da Empresa"
                        FontWeight="Bold" FontSize="16" FontFamily="Arial" Foreground="White" Margin="20,91,0,0" />
                 <TextBox Width="130" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" x:Name="TxbEmp" Margin="235,94,0,0" FontSize="16" />
-                <Button x:Name="BtnBuscarEmp" Click="BtnBuscarEmp_Click" Width="70" Height="28" Cursor="Hand" VerticalAlignment="Top" HorizontalAlignment="Center"
-                        Margin="0,92,270,0" Padding="0" Content="Buscar" FontFamily="Arial" Foreground="White">
+                <Button x:Name="BtnBuscarEmp" Click="BtnBuscarEmp_Click" Width="70" Height="25" Cursor="Hand" VerticalAlignment="Top" HorizontalAlignment="Center"
+                        Margin="0,94,270,0" Padding="0" Content="Buscar" FontFamily="Arial" Foreground="White">
                     <Button.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                             <GradientStop Color="Black"/>

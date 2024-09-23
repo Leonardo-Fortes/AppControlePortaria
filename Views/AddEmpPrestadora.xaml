@@ -5,13 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AppPortariaControle.Views"
         mc:Ignorable="d"
-         Title="Cadastrar Empresa Prestadora de Serviços" Width="600" Height="140" MaxHeight="140" MaxWidth="600" MinHeight="140" MinWidth="600"
+         Title="Cadastrar Empresa Prestadora de Serviços" MaxHeight="140" MaxWidth="600" MinHeight="140" MinWidth="600"
  WindowStartupLocation="CenterScreen">
     <Grid>
         <Label Content="Nome" Width="60" FontSize="16" VerticalAlignment="Top" HorizontalAlignment="Left"></Label>
-        <TextBox  x:Name="txtCadNameEmp" Width="500" Height="22" FontSize="16" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="20,6,0,0"></TextBox>
+        <TextBox  x:Name="txtCadNameEmp" Width="500" Height="22" FontSize="16" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="60,6,0,0"></TextBox>
         <Label Content="CNPJ" Width="50" FontSize="16" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,30,0,0"></Label>
-        <TextBox Name="txtCadCNPJEmp" Width="140" Height="22" FontSize="16" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,36,350,0"></TextBox>
-        <Button Width="70" Height="25" FontSize="13" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,34,40,0" Content="Cadastrar" Click="BtnCadastroEmp_Click"></Button>
+        <TextBox Name="txtCadCNPJEmp" Width="140" Height="22" FontSize="16" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="60,36,0,0"></TextBox>
+        <Button Width="70" Height="25" FontSize="13" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,38,22,0" Content="Cadastrar" Click="BtnCadastroEmp_Click"></Button>
+        <Label Content="( CNPJ não obrigatório )" Width="187" FontSize="16" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="209,31,0,0"/>
     </Grid>
 </Window>

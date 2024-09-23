@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AppPortariaControle.Views"
         mc:Ignorable="d"
-        Title="Controle Portaria" Height="700" Width="1074" MinWidth="1074" MinHeight="700" FontSize="16"
+        Title="Controle Portaria"  MinWidth="1074" MinHeight="700" MaxHeight="700" MaxWidth="1074" FontSize="16"
         WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.Background>
@@ -16,12 +16,12 @@
             </RadialGradientBrush>
         </Grid.Background>
         <Grid>
-
-            <Grid>
-                <Label Width="205" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Content="Digite a placa do Veiculo:" FontWeight="Bold"
-                       FontSize="16" FontFamily="Arial" Foreground="White" Margin="20,91,0,0" ></Label>
-                <TextBox Width="130" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" x:Name="TxbPlaca" Margin="230,94,0,0" FontSize="16" ></TextBox>
-                <Button x:Name="btnBuscar" Click="BtnBuscar_Click" Width="70" Height="28" Cursor="Hand" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,92,230,0" Padding="0" Content="Buscar" FontFamily="Arial" Foreground="White">
+            <Label Content="Controle Interno" HorizontalAlignment="Left" Margin="385,17,0,0" VerticalAlignment="Top" FontSize="30" FontWeight="Bold"/>
+            <Grid Width="540" Height="100" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,90,0,0">
+                <Label Width="205" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" Content="Digite a placa do Veiculo:" FontWeight="Bold"
+                       FontSize="16" FontFamily="Arial" Foreground="White" Margin="0,0,0,0" ></Label>
+                <TextBox Width="130" Height="25" VerticalAlignment="Center" HorizontalAlignment="Center" x:Name="TxbPlaca" Margin="0,0,0,0" FontSize="16" ></TextBox>
+                <Button x:Name="btnBuscar" Click="BtnBuscar_Click" Width="70" Height="28" Cursor="Hand" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,120,0" Padding="0" Content="Buscar" FontFamily="Arial" Foreground="White">
                     <Button.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                             <GradientStop Color="Black"/>
@@ -29,7 +29,7 @@
                         </LinearGradientBrush>
                     </Button.Background>
                 </Button>
-                <Label Content="Controle Interno" HorizontalAlignment="Left" Margin="385,17,0,0" VerticalAlignment="Top" FontSize="30" FontWeight="Bold"/>
+                
             </Grid>
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -39,8 +39,8 @@
 
 
             </Grid>
-            <Grid Width="780" Height="350" Margin="0,60,0,0">
-                <DataGrid x:Name="dataGridVeiculos" AutoGenerateColumns="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10"
+            <Grid >
+                <DataGrid x:Name="dataGridVeiculos" Width="1080" Height="360" AutoGenerateColumns="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,10,10,0"
                           IsReadOnly="True">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Placa" Binding="{Binding Placa}" IsReadOnly="True" Width="*"/>
@@ -49,7 +49,7 @@
                         <DataGridTextColumn Header="Motorista" Binding="{Binding Motorista}" IsReadOnly="True" Width="*"/>
                     </DataGrid.Columns>
                 </DataGrid>
-                <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Height="150" Grid.ColumnSpan="2" Margin="230,260,0,0">
+                <StackPanel HorizontalAlignment="Right" VerticalAlignment="Top" Height="150" Grid.ColumnSpan="2" Margin="0,90,10,0">
                     <!-- Botão Entrada -->
                     <Button x:Name="BtnEntrada" Content="Entrada" Width="130" Height="35"
      FontWeight="Bold" FontSize="12" Foreground="White" Cursor="Hand"
@@ -102,6 +102,8 @@
                             </TransformGroup>
                         </Button.RenderTransform>
                     </Button>
+                    
+                    
 
                     <!-- Botão Saída -->
                     <Button x:Name="BtnSaida" Content="Saída" Width="130" Height="35" VerticalAlignment="Center" HorizontalAlignment="Center"
@@ -148,6 +150,8 @@
                         </Button.Resources>
                     </Button>
                 </StackPanel>
+                <Button Content="Cadastrar Veiculo" VerticalAlignment="Bottom" HorizontalAlignment="Left" FontFamily="Arial"
+    Margin="10,0,0,127" FontSize="16" FontWeight="Bold" BorderBrush="{x:Null}" Width="200" Click="AdicionarVeiculo_Click" Cursor="Hand"/>
               
             </Grid>
 
