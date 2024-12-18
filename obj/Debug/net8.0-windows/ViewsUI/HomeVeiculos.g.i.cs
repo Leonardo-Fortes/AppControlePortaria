@@ -104,7 +104,7 @@ namespace AppPortariaControle.ViewsUI {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/AppPortariaControle;component/viewsui/homeveiculos.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/AppPortariaControle;V1.0.0.0;component/viewsui/homeveiculos.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\ViewsUI\HomeVeiculos.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AppPortariaControle")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f9a0082d04cfc707b4326f5cde4f5da06f5d6849")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+04d72932f07fe7dbbce766f875d3d15a40b5c544")]
 [assembly: System.Reflection.AssemblyProductAttribute("AppPortariaControle")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AppPortariaControle")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
