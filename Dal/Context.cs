@@ -17,9 +17,10 @@ namespace AppPortariaControle.Dal
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(@"Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=Controle_Portaria;Data Source=PROG06-KALPA; TrustServerCertificate=True;");
+
         }
-        public DbSet<Veiculo> Veiculos { get; set; }
-        public DbSet<AcessoInterno> AcessoInternos { get; set; }
+        public DbSet<Veiculo> Veiculos { get; set; } 
+        public DbSet<AcessoInterno> AcessoInternos { get; set; } 
 
         public DbSet<Usuario> Usuarios { get; set; }
         
@@ -30,6 +31,16 @@ namespace AppPortariaControle.Dal
         public DbSet<RegistroPrestadorServico> RegistroPrestadorServicos { get; set; }
 
         public DbSet<Funcionario> funcionarios { get; set; }
+
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<RegistroPrestadorServico>()
+                .ToTable("RegPrestadoresServicos", t => t.ExcludeFromMigrations());
+
+
+        }
+
     }
-        
+
 }

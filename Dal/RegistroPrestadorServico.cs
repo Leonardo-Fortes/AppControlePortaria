@@ -7,40 +7,43 @@ using System.Threading.Tasks;
 
 namespace AppPortariaControle.Dal
 {
-    [Table("RegistroPrestadorServico")]
+    [Table("RegPrestadoresServicos")]
     public class RegistroPrestadorServico
     {
         [Column("ID")]
         public int ID { get; set; }
 
-        [Column("NomeFunc")]
-        public string? NomeFunc { get; set; }
-
-        [Column("CPF")]
-        public string? CPF { get; set; }
-
-        [Column("RG")]
-        public string? RG { get; set; }
-
-        [Column("NomeEmp")]
-        public string? NomeEmp { get; set; }
-
-        [Column("CNPJ")]
-        public string? CNPJ { get; set; }
-
-        [Column("ColaboradorResponsavel")]
-        public string? ColaboradorResponsavel { get; set; }
-
         [Column("Entrada")]
-        public DateTime Entrada { get; set; }
+        public DateTime? Entrada { get; set; }
 
         [Column("Saida")]
         public DateTime? Saida { get; set; }
 
-        [Column("ResponsavelControleEntrada")]
+        [Column("Responsavel")]
+        public string? ColaboradorResponsavel { get; set; }
+
+        [Column("PortariaEntrada")]
         public string? ResponsavelControleEntrada { get; set; }
 
-        [Column("ResponsavelControleSaida")]
+        [Column("PortariaSaida")]
         public string? ResponsavelControleSaida { get; set; }
+
+        [ForeignKey("PrestadorServicoEmp")]
+        [Column("ID_Emp")]
+        public int ID_Emp { get; set; }
+        public PrestadorServicoEmp? PrestadorServicoEmp { get; set; }
+
+
+        [ForeignKey("PrestadorServicoFunc")]
+        [Column("ID_Func")]
+        public int ID_Func { get; set; }
+
+
+        public PrestadorServicoFunc? PrestadorServicoFunc { get; set; }
+
+       
+
+
+
     }
 }

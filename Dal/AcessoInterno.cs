@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
+﻿using AppPortariaControle.Enums;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -9,23 +10,16 @@ using System.Threading.Tasks;
 
 namespace AppPortariaControle.Dal
 {
-    [Table("AcessoInterno")]
+    [Table("AcessosInterno")]
     public class AcessoInterno
     {
         [Column("ID")]
         [Key]
         public int ID { get; set; }
 
-        [Column("Placa")]
-        public string? Placa { get; set; }
-        [Column("Tipo")]
-        public string? Tipo { get; set; }
-        [Column("Modelo")]
-        public string? Modelo { get; set; }
-        [Column("Motorista")]
-        public string? Motorista { get; set; }
-        [Column("Mes")]
-        public string? Mes { get; set; }
+
+        [Column("Status")]
+        public EStatus Status { get; set; } = EStatus.Saida;
 
         [Column("Entrada")]
         public DateTime Entrada { get; set; } 
@@ -33,10 +27,18 @@ namespace AppPortariaControle.Dal
         [Column("Saida")]
         public DateTime? Saida { get; set; }
 
-        [Column("ResponsavelControleEntrada")]
-        public string? ResponsavelControleEntrada { get; set; }
+        [Column("ResponsavelEntrada")]
+        public string ResponsavelControleEntrada { get; set; } = string.Empty;
 
-        [Column("ResponsavelControleSaida")]
+        [Column("ResponsavelSaida")]
         public string? ResponsavelControleSaida { get; set; }
+
+        [ForeignKey("Veiculo")]
+        [Column("Id_Veiculos")]
+        public int Id_Veiculos { get; set; }
+
+        public Veiculo? Veiculo { get; set; }
+
+
     }
 }

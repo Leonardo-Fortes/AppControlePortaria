@@ -7,7 +7,8 @@
       mc:Ignorable="d" 
       d:DesignHeight="200" d:DesignWidth="400"
       Title="ColabReponsavel" MaxHeight="200" MaxWidth="400" MinHeight="200" MinWidth="400"
-      WindowStartupLocation="CenterScreen">
+      WindowStartupLocation="CenterScreen"
+         Icon="/Imagens/icon-default.png">
 
     <Grid>
         <StackPanel>

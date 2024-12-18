@@ -19,6 +19,12 @@ namespace AppPortariaControle.Dal
         [Column("CNPJ")]
         public string? CNPJ { get; set; }
 
+        [Column("UserAdd")]
+        public string UserAdd { get; set; } = string.Empty;
+
+        [Column("DataAdd")]
+        public DateTime DataAdd { get; set; } = DateTime.UtcNow;
+
         public ICollection<PrestadorServicoFunc> PrestadorServicoFuncs { get; set; }
     }
 }

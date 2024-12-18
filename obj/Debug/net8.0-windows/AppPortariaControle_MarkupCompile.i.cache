@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 C:\Users\leonardo\source\repos\AppPortariaControle\AppPortariaControle\App.xaml
-92107951135
+9656857719
 
-24586907888
-239-836881492
-Views\AddEmpPrestadora.xaml;Views\AddFuncPrestador.xaml;Views\AdicionarVeiculo.xaml;Views\ColabReponsavel.xaml;Views\ControleInterno.xaml;Views\ControleVisitante.xaml;Views\Home.xaml;Views\ListarEmpresas.xaml;Views\MainWindow.xaml;
+28-1801282510
+292348386502
+ViewsUI\DadosEmpresa.xaml;ViewsUI\DataExportExcel.xaml;ViewsUI\HomeVeiculos.xaml;ViewsUI\Page1.xaml;Views\AddEmpPrestadora.xaml;Views\AddFuncPrestador.xaml;Views\AdicionarVeiculo.xaml;Views\ColabReponsavel.xaml;Views\MainWindow.xaml;
 
-True
+False
 

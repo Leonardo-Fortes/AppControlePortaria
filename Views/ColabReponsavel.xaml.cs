@@ -1,4 +1,5 @@
 ﻿using AppPortariaControle.Dal;
+using AppPortariaControle.Dtos;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -22,7 +23,7 @@ namespace AppPortariaControle.Views
     /// </summary>
     public partial class ColabReponsavel : Window
     {
-        private MainWindow _mainWindow;
+       
         public VisitanteDto SelectedItem { get; private set; }
         public ColabReponsavel(VisitanteDto selectedItem)
         {
@@ -33,29 +34,33 @@ namespace AppPortariaControle.Views
         private async void Salvar_Click(object sender, RoutedEventArgs e)
         {
             Context context = new Context();
+            
 
             if (SelectedItem != null)
             {
 
-                string? cpf = SelectedItem.TipoDocumento.Equals("CPF") ? SelectedItem.Documento : null;
-                string? rg = SelectedItem.TipoDocumento.Equals("RG") ? SelectedItem.Documento : null;
+                int id_emp = SelectedItem.ID_Emp;
+                int id_func = SelectedItem.ID_Func;
+
+
                 string colabRespons = txtColabResponsavel.Text;
-                var resultAcess = new RegistroPrestadorServico()
+                // Criando uma instância de PrestadorServicoFunc
+ 
+                // Criando a instância de RegistroPrestadorServico
+                var resultAcess = new RegistroPrestadorServico
                 {
-                    NomeFunc = SelectedItem.NomeFunc,
-                    RG = rg,
-                    CPF = cpf,
-                    NomeEmp = SelectedItem.NomeEmp,
-                    CNPJ = SelectedItem.CNPJ,
+                    ID_Emp = id_emp,
+                    ID_Func = id_func,
                     Entrada = DateTime.Now,
                     Saida = null,
-                    ColaboradorResponsavel = colabRespons,
-                    ResponsavelControleEntrada = MainWindow.UsuarioLogado
+                    ColaboradorResponsavel = string.IsNullOrWhiteSpace(colabRespons) ? "N/A" : colabRespons.ToUpper(),
+                    ResponsavelControleEntrada = MainWindow.UsuarioLogado?.ToUpper()
                 };
 
+                // Salvando no contexto
                 context.RegistroPrestadorServicos.Add(resultAcess);
-
                 await context.SaveChangesAsync();
+
 
                 MessageBox.Show($"Registro salvo com sucesso! Horário de entrada: {resultAcess.Entrada} ", "Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
 

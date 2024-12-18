@@ -1,0 +1,381 @@
+﻿<Window x:Class="AppPortariaControle.ViewsUI.HomeVeiculos"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AppPortariaControle.Views"
+        xmlns:outro="clr-namespace:AppPortariaControle.Services" 
+        mc:Ignorable="d"
+        ResizeMode="NoResize"
+        MouseDoubleClick="Window_MouseDoubleClick"
+       
+
+        WindowStyle="None"
+        AllowsTransparency="True"
+        
+        Background="Transparent"
+         WindowStartupLocation="CenterScreen"
+        
+       
+        Title="Window1" MaxHeight="620" MaxWidth="1080" MinHeight="620" MinWidth="1080">
+    <Window.Resources>
+
+        <Style x:Key="NoHoverButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" 
+                           BorderBrush="{TemplateBinding BorderBrush}" 
+                           BorderThickness="{TemplateBinding BorderThickness}">
+                            <ContentPresenter HorizontalAlignment="Center" 
+                                         VerticalAlignment="Center" 
+                                         Content="{TemplateBinding Content}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <!-- Remove o hover alterando a cor para transparente -->
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="Transparent"/>
+                                <Setter Property="BorderBrush" Value="Transparent"/>
+                                <Setter Property="Foreground" Value="White"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" Value="Transparent"/>
+                                <Setter Property="BorderBrush" Value="Transparent"/>
+                                <Setter Property="Foreground" Value="White"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style TargetType="ToolTip">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ToolTip">
+                        <Border Background="Black" CornerRadius="4" BorderBrush="Gray" BorderThickness="1">
+                            <TextBlock Text="{TemplateBinding Content}" 
+                              Foreground="White" 
+                              FontSize="16" 
+                              Padding="10" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+    </Window.Resources>
+    <Border Background="#eff2f7" CornerRadius="20" MouseDown="Border_MouseDown" MouseLeftButtonDown="Border_MouseLeftButtonDown">
+
+        <Grid>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="230"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Border BorderBrush="#000171" BorderThickness="0" CornerRadius="0,10,0,25">
+                <!--Left Menu -->
+                <Grid >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <!--Menu Icon-->
+                    <Grid Background="#2700cb">
+                        <Button Padding="10" Click="Sair_Click" FontWeight="Bold" Cursor="Hand" FontSize="16" BorderBrush="Transparent" Foreground="White" HorizontalAlignment="Right" Background="Transparent">
+                            <Button.Content>
+                                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Width="230">
+                                    <Icon:PackIconMaterial Kind="Logout" Width="50" Height="60" Margin="0,0,10,0" />
+                                    <TextBlock Margin="30,0,0,0" FontSize="24" Text="Sair" VerticalAlignment="Center" />
+                                </StackPanel>
+                            </Button.Content>
+                        </Button>
+
+                    </Grid>
+
+                    <Border Grid.Row="1" Padding="0" Background="#2700cb" CornerRadius="0 0 0 20">
+                        <StackPanel Grid.Row="1"   VerticalAlignment="Stretch" Margin="0 30 0 0">
+
+                            <Button Padding="10" FontWeight="Bold" Cursor="Hand" FontSize="16" BorderBrush="Transparent" Foreground="White" HorizontalAlignment="Right" Background="Transparent" 
+                                    Command="{Binding VoltarCommand}" >
+                                <Button.Content>
+                                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Width="230">
+                                        <Icon:PackIconMaterial Kind="VanUtility" Width="50" Height="60" Margin="0,0,10,0" />
+                                        <TextBlock Text="Veiculos Interno" VerticalAlignment="Center" />
+                                    </StackPanel>
+                                </Button.Content>
+                            </Button>
+
+                            <Button  Padding="10" FontWeight="Bold" Cursor="Hand" FontSize="16" BorderBrush="Transparent" Foreground="White" HorizontalAlignment="Right" Background="Transparent" 
+                                Command="{Binding NavigateCommand}" CommandParameter="Page1">
+                                <Button.Content>
+                                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Width="230">
+                                        <Icon:PackIconMaterial Kind="FaceManOutline" Width="50" Height="60" Margin="0,0,10,0" />
+                                        <TextBlock Text="Visitantes/Terceiros" VerticalAlignment="Center" />
+                                    </StackPanel>
+                                </Button.Content>
+                            </Button>
+
+                            <!--<Menu Background="Transparent" BorderBrush="Transparent">
+                                <MenuItem Header="Relatórios" Height="50" Width="160"  Margin="68 0 0 0" Template="{StaticResource SubMenuControlTemplate}">
+                                    <MenuItem.Icon> 
+                                        <Icon:PackIconMaterial Kind="FaceManOutline" Width="50" Height="60"  Margin="0,0,10,0" />
+                                    </MenuItem.Icon>
+                                    <MenuItem Header="Colaboradores" Style="{StaticResource RightSubMenu}">
+                                        <MenuItem Header="Veículos Cadastrados" />
+                                        <MenuItem Header="Registro de entrada/saída veículos" />
+                                    </MenuItem>
+                                    <MenuItem Header="Visitantes" Style="{StaticResource RightSubMenu}">
+                                        <MenuItem Header="Visitantes Cadastrados" />
+                                        <MenuItem Header="Registro entrada/saída visitantes" />
+                                    </MenuItem>
+                                </MenuItem>
+                            </Menu>-->
+
+                        </StackPanel>
+                    </Border>
+
+                    <Grid Grid.Row="1" Margin="0,0,0,20" VerticalAlignment="Bottom" Height="100">
+                        <Image Source="pack://application:,,,/Imagens/logo-embaquim-teste.png"
+                       HorizontalAlignment="Stretch"
+                       VerticalAlignment="Stretch"
+                       Stretch="UniformToFill"
+                       Opacity="1" />
+                    </Grid>
+
+                </Grid>
+            </Border>
+            <Border Grid.Column="2" Background="#000171" CornerRadius="0 20 20 0" Padding="5">
+                <Grid>
+            <Grid Grid.Column="1" >
+                <Label Content="Portal de Acesso de Veículos de Colaboradores" HorizontalAlignment="center" Margin="0,27,0,0" VerticalAlignment="Top" FontSize="30" FontWeight="Bold" Foreground="White"/>
+                        <Button  Background="Transparent"
+                        HorizontalAlignment="Right" 
+                                 BorderBrush="Transparent"
+                        VerticalAlignment="Top" 
+                        Width="40" Margin="5" 
+                        Height="25" 
+                        Click="Minimizar_Click" Cursor="Hand">
+                            <Icon:PackIconMaterial Kind="WindowMinimize" Foreground="White" Width="30" Height="15" Margin="0,0,0,0" />
+                        </Button>
+                        <Label Width="205" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Content="Digite a placa do Veiculo" FontWeight="Bold"
+                    FontSize="16" FontFamily="Arial" Foreground="White" Margin="12,145,0,0" ></Label>
+                <TextBox Width="205" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" x:Name="TxbPlaca" Margin="12,175,0,0" FontSize="16" ></TextBox>
+                <Button x:Name="btnBuscar" Click="BtnBuscar_Click" Width="70" Height="25" Cursor="Hand" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,175,330,0" Padding="0" Content="Buscar" FontFamily="Arial" Foreground="White">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="Black"/>
+                            <GradientStop Color="#FF518CFF" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+
+                        <DataGrid x:Name="dataGridVeiculos"  Height="390" AutoGenerateColumns="False" VerticalAlignment="Bottom" Margin="12,0,12,12"
+                   IsReadOnly="True" HeadersVisibility="Column" HorizontalScrollBarVisibility="Auto"
+           VerticalScrollBarVisibility="Auto" Grid.RowSpan="4" >
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="Placa" Binding="{Binding Placa}" IsReadOnly="True" Width="100"/>
+                                    <DataGridTextColumn Header="Tipo" Binding="{Binding Tipo}" IsReadOnly="True" Width="100"/>
+                                    <DataGridTextColumn Header="Modelo" Binding="{Binding Modelo}" IsReadOnly="True" Width="100"/>
+                                    <DataGridTextColumn Header="Condutor" Binding="{Binding Motorista}" IsReadOnly="True" Width="250"/>
+                                    <DataGridTextColumn Header="Reg.Entrada" Binding="{Binding Entrada}" IsReadOnly="True" Width="*"/>
+                                    <DataGridTextColumn Header="Reg. Saída" Binding="{Binding Saida}" IsReadOnly="True" Width="*"/>
+                                    <DataGridTemplateColumn Header="Status">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <Image Width="20" Height="20">
+                                                    <Image.Source>
+                                                        <Binding Path="Status" Converter="{StaticResource StatusImage}" />
+                                                    </Image.Source>
+                                                </Image>
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                    <DataGridTemplateColumn Header="Ações">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                                    <Button  
+                         Click="Excluir_Click" 
+                         Width="30" 
+                         Height="25"
+                         Tag="{Binding}"
+                         Background="Transparent" Cursor="Hand">
+                                                        <Image Source="/Imagens/lixeira.png" Stretch="Fill"></Image>
+                                                    </Button>
+
+                                                    <Button  
+                             Click="Update_Click" 
+                             Width="30" 
+                             Height="25"
+                             Tag="{Binding}"
+                             Background="Transparent" Cursor="Hand">
+                                                        <Image Source="/Imagens/edicao.png" Stretch="Fill"></Image>
+                                                    </Button>
+                                                </StackPanel>
+                                            </DataTemplate>
+
+                                        </DataGridTemplateColumn.CellTemplate>
+
+                                    </DataGridTemplateColumn>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        
+
+                        <!-- Botão Entrada -->
+                <Button x:Name="BtnEntrada" Content="Entrada" Width="130" Height="35" HorizontalAlignment="Right" VerticalAlignment="Top"
+                  FontWeight="Bold" FontSize="12" Foreground="Black" Cursor="Hand"
+                  Background="#91f534" BorderBrush="#FF388E3C" BorderThickness="2"
+                  Padding="0" Margin="0,168,150,0" RenderTransformOrigin="0.5,0.5" Click="BtnEntrada_Click">
+                    <Button.Resources>
+                        <Style TargetType="Button">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border x:Name="border" Background="{TemplateBinding Background}"
+                      BorderBrush="{TemplateBinding BorderBrush}"
+                      BorderThickness="{TemplateBinding BorderThickness}"
+                      CornerRadius="15"
+                      Padding="{TemplateBinding Padding}">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"
+                                    Content="{TemplateBinding Content}" />
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+                                            <!-- Trigger para mudar a cor de fundo ao passar o mouse -->
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter TargetName="border" Property="Background" Value="#FF66BB6A"/>
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Style.Triggers>
+                                <!-- Trigger para mudar a cor da borda ao passar o mouse -->
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="BorderBrush" Value="#FF4CAF50"/>
+                                </Trigger>
+                                <!-- Trigger para adicionar sombra ao botão -->
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Effect">
+                                        <Setter.Value>
+                                            <DropShadowEffect Color="Black" BlurRadius="10" ShadowDepth="3" />
+                                        </Setter.Value>
+                                    </Setter>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Resources>
+                    <Button.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform AngleX="-1.373"/>
+                            <RotateTransform/>
+                            <TranslateTransform X="-0.599"/>
+                        </TransformGroup>
+                    </Button.RenderTransform>
+                </Button>
+                <!-- Botão Saída -->
+
+                <Button x:Name="BtnSaida" Content="Saída" Width="130" Height="35" VerticalAlignment="Top" HorizontalAlignment="Right" 
+                  FontWeight="Bold" FontSize="12" Foreground="Black" Cursor="Hand"
+                  Background="#FF4713" BorderBrush="#FFD32F2F" BorderThickness="2"
+                  Padding="5" Margin="0,168,10,0" Click="BtnSaida_Click">
+                    <Button.Resources>
+                        <Style TargetType="Button">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border x:Name="border" Background="{TemplateBinding Background}"
+                      BorderBrush="{TemplateBinding BorderBrush}"
+                      BorderThickness="{TemplateBinding BorderThickness}"
+                      CornerRadius="15"
+                      Padding="{TemplateBinding Padding}">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"
+                                    Content="{TemplateBinding Content}" />
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+                                            <!-- Trigger para mudar a cor de fundo ao passar o mouse -->
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter TargetName="border" Property="Background" Value="#FFE57373"/>
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Style.Triggers>
+                                <!-- Trigger para mudar a cor da borda ao passar o mouse -->
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="BorderBrush" Value="#FFF44336"/>
+                                </Trigger>
+                                <!-- Trigger para adicionar sombra ao botão -->
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Effect">
+                                        <Setter.Value>
+                                            <DropShadowEffect Color="Black" BlurRadius="10" ShadowDepth="3" />
+                                        </Setter.Value>
+                                    </Setter>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+                <Button Style="{StaticResource NoHoverButtonStyle}"
+                        ToolTip="Saída de veículos"
+                        ToolTipService.InitialShowDelay="0"     
+                        ToolTipService.ShowDuration="5000"
+                        VerticalAlignment="Top" HorizontalAlignment="Right" FontFamily="Arial" 
+                        Margin="0,120,60,0" FontSize="16" FontWeight="Bold" BorderBrush="{x:Null}"
+                        Width="40" Height="40" Click="VeiculosSaida_Click" Cursor="Hand">
+                    <Button.Background>
+                        <ImageBrush ImageSource="/Imagens/exit.png" Stretch="Uniform"/>
+                    </Button.Background>
+
+                </Button>
+                <Button Style="{StaticResource NoHoverButtonStyle}"
+                    ToolTip="Adicionar Veiculo"
+                    ToolTipService.InitialShowDelay="0"     
+                    ToolTipService.ShowDuration="5000"
+                    VerticalAlignment="Top" HorizontalAlignment="Right" FontFamily="Arial" 
+                    Margin="0,120,10,0" FontSize="16" FontWeight="Bold" BorderBrush="{x:Null}"
+                    Width="40" Height="40" Click="AdicionarVeiculo_Click" Cursor="Hand">
+                    <Button.Background>
+                        <ImageBrush ImageSource="/Imagens/cadastro-1.png" Stretch="Uniform"/>
+                    </Button.Background>
+
+                </Button>
+                <Button Style="{StaticResource NoHoverButtonStyle}" VerticalAlignment="Top"
+                        ToolTip="Entrada de veículos" HorizontalAlignment="Right" FontFamily="Arial"
+                        ToolTipService.InitialShowDelay="0"     
+                        ToolTipService.ShowDuration="5000"
+                        Margin="0,120,105,0" FontSize="16" FontWeight="Bold" BorderBrush="{x:Null}" Width="60" Height="40" Click="VeiculosCadastrados_Click" Cursor="Hand">
+                    <Button.Background>
+                        <ImageBrush ImageSource="/Imagens/entry.png" Stretch="Uniform">
+
+                        </ImageBrush>
+
+                    </Button.Background>
+                </Button>
+
+                        <Button Style="{StaticResource NoHoverButtonStyle}" VerticalAlignment="Top"
+        ToolTip="Exportar Excel" HorizontalAlignment="Right" FontFamily="Arial"
+        ToolTipService.InitialShowDelay="0"     
+        ToolTipService.ShowDuration="5000"
+        Margin="0,120,160,0" FontSize="16" FontWeight="Bold" BorderBrush="{x:Null}" Width="40" Height="40" Click="ExportExcel_Click" Cursor="Hand">
+                           
+                            
+                            <Icon:PackIconMaterial Kind="FileDocument" Width="30" Height="30" Margin="0,0,10,0" />
+                           
+                        </Button>
+
+                    </Grid>
+            <Frame Grid.Column="1" x:Name="MainFrame" NavigationUIVisibility="Hidden" />
+                </Grid>
+            </Border>
+        </Grid>
+    </Border>
+</Window>

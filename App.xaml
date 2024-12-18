@@ -2,9 +2,224 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:AppPortariaControle"
+             xmlns:outro="clr-namespace:AppPortariaControle.Services"
              StartupUri="Views/MainWindow.xaml"
-             ShutdownMode="OnMainWindowClose">
+             ShutdownMode="OnMainWindowClose"
+    xmlns:theme="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2">
+
+
     <Application.Resources>
-         
+
+        <outro:DocumentFormatterMultiConverter x:Key="DocumentFormatterMultiConverter"/>
+        <outro:StatusImage x:Key="StatusImage"/>
+
+     
+        
+
+
+
+
+        <Style TargetType="Button" x:Key="TransparentButtonStyle">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="BorderBrush" Value="Transparent" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="Transparent" />
+                    <Setter Property="BorderBrush" Value="Transparent" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        
+        <!--Buttons sem hover-->
+        <Style x:Key="NoHoverButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" 
+            BorderBrush="{TemplateBinding BorderBrush}" 
+            BorderThickness="{TemplateBinding BorderThickness}">
+                            <ContentPresenter HorizontalAlignment="Center" 
+                          VerticalAlignment="Center" 
+                          Content="{TemplateBinding Content}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <!-- Remove o hover alterando a cor para transparente -->
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="Transparent"/>
+                                <Setter Property="BorderBrush" Value="Transparent"/>
+                                <Setter Property="Foreground" Value="White"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" Value="Transparent"/>
+                                <Setter Property="BorderBrush" Value="Transparent"/>
+                                <Setter Property="Foreground" Value="White"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        
+        
+        <!--ToolTip (Explicações dos buttons)-->
+        <Style TargetType="ToolTip">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ToolTip">
+                        <Border Background="Black" CornerRadius="4" BorderBrush="Gray" BorderThickness="1">
+                            <TextBlock Text="{TemplateBinding Content}" 
+                              Foreground="White" 
+                              FontSize="16" 
+                              Padding="10" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!--Stilo das celulas (BootStrap) -->
+        <Style TargetType="DataGridCell">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="DataGridCell">
+                        <Border CornerRadius="2"
+                        Background="{TemplateBinding Background}" 
+                        BorderBrush="#E5E5E5" 
+                        BorderThickness="1" 
+                        Padding="5">
+                            <ContentPresenter HorizontalAlignment="Center" 
+                                      VerticalAlignment="Center" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Margin" Value="2" />
+            <Setter Property="Padding" Value="5" />
+            <Setter Property="BorderBrush" Value="#E5E5E5" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="Background" Value="White" />
+            <Setter Property="Foreground" Value="#495057" />
+            <Style.Triggers>
+                <!-- Cor quando a célula é selecionada -->
+                <Trigger Property="IsSelected" Value="True">
+                    <Setter Property="Background" Value="#CCE5FF" />
+                    <!-- Azul claro -->
+                    <Setter Property="Foreground" Value="#004085" />
+                    <!-- Azul escuro -->
+                </Trigger>
+                <!-- Hover Effect -->
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#F8F9FA" />
+                    <!-- Cinza claro -->
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <!-- Borda das celulas -->
+        <Style TargetType="DataGrid">
+            <Setter Property="BorderBrush" Value="#D9D9D9" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="Background" Value="White" />
+            <Setter Property="RowBackground" Value="#F5F5F5" />
+            <Setter Property="AlternatingRowBackground" Value="#EAEAEA" />
+            <Setter Property="Foreground" Value="#333333" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="HorizontalGridLinesBrush" Value="#D9D9D9" />
+            <Setter Property="VerticalGridLinesBrush" Value="#D9D9D9" />
+            <Setter Property="CellStyle">
+                <Setter.Value>
+                    <Style TargetType="DataGridCell">
+                        <Setter Property="Margin" Value="5" />
+                        <Setter Property="Padding" Value="10,5" />
+                        <Setter Property="BorderBrush" Value="Transparent" />
+                        <Setter Property="BorderThickness" Value="0" />
+                        <Setter Property="Background" Value="White" />
+                        <Setter Property="Foreground" Value="#333333" />
+                        <Setter Property="VerticalAlignment" Value="Center" />
+                        
+                        <Style.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="Background" Value="#000171" />
+                                <Setter Property="Foreground" Value="White" />
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- Estilo para o cabeçalho -->
+        <Style TargetType="DataGridColumnHeader">
+            <Setter Property="Background" Value="#333333" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="Padding" Value="10,5" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="BorderBrush" Value="#D9D9D9" />
+            <Setter Property="BorderThickness" Value="0,0,0,1" />
+        </Style>
+
+        <!--<Style TargetType="MenuItem">
+            <Setter Property="Background" Value="Blue"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="White"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        --><!-- Define the style for submenus to make them appear on the right --><!--
+        <Style TargetType="MenuItem" x:Key="RightSubMenu">
+            <Setter Property="Background" Value="Blue"/>
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="VerticalContentAlignment" Value="Top"/>
+
+        </Style>
+
+        --><!-- Define the template for the MenuItem with submenu --><!--
+        <ControlTemplate x:Key="SubMenuControlTemplate" TargetType="MenuItem">
+            <Border Background="Blue" BorderBrush="Transparent" BorderThickness="0" Padding="5">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    --><!-- Menu Item Content --><!--
+                    <ContentPresenter HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="0" />
+
+                    --><!-- Submenu which appears on hover --><!--
+                    <Popup IsOpen="{Binding IsSubmenuOpen, RelativeSource={RelativeSource TemplatedParent}}" 
+                      Placement="Bottom" 
+                      StaysOpen="True" 
+                      HorizontalOffset="0" VerticalOffset="0">
+                        <Border Background="White" BorderBrush="Gray" BorderThickness="1">
+                            <Menu>
+                                <MenuItem Header="Submenu Item 1" />
+                                <MenuItem Header="Submenu Item 2" />
+                            </Menu>
+                        </Border>
+                    </Popup>
+                </Grid>
+            </Border>
+        </ControlTemplate>-->
     </Application.Resources>
 </Application>

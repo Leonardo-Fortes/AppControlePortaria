@@ -15,14 +15,14 @@ namespace AppPortariaControle.Dal
         [Key]
         public int ID { get; set; }
         [Column("Usuario")]
-        public string? Login { get; set; }
+        public string Login { get; set; } = null!;
         [Column("Senha")]
-        public string? Senha { get; set; }
+        public string Senha { get; set; } = null!;
         [Column("Nome")]
-        public string? Nome { get; set; }
+        public string Nome { get; set; } = null!;
         [Column("Turno")]
-        public string? Turno { get; set; }
-        
+        public string Turno { get; set; } = null!;
+
 
     }
 }

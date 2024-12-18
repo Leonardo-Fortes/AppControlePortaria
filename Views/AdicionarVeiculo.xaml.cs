@@ -1,28 +1,39 @@
 ﻿using AppPortariaControle.Dal;
+using AppPortariaControle.Dtos;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System;
-using System.Collections.Generic;
-using System.Diagnostics.Eventing.Reader;
+using System.ComponentModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace AppPortariaControle.Views
 {
-    /// <summary>
-    /// Lógica interna para AdicionarVeiculo.xaml
-    /// </summary>
     public partial class AdicionarVeiculo : Window
     {
+
+        private VeiculoDto _item;
+        private bool update = false;
+
+
+        public AdicionarVeiculo(VeiculoDto item)
+        {
+            InitializeComponent();
+            _item = item;
+
+            if (_item != null)
+            {
+                txtModelo.Text = _item.Modelo;
+                txtNomeFunc.Text = _item.Motorista;
+                txtPlaca.Text = _item.Placa;
+                comboBoxVeiculo.Text = _item.Tipo;
+                update = true;
+            }
+        }
+
+
+
         public AdicionarVeiculo()
         {
             InitializeComponent();
@@ -33,78 +44,120 @@ namespace AppPortariaControle.Views
             using (Context context = new Context())
             {
                 var buscar = context.funcionarios
-                  .Where(x => EF.Functions.Like(x.Nome, txtNomeFunc.Text + "%"))
-                  .Select(x => new VeiculoDto
-                  {
-                      Motorista = x.Nome,
-                      ID_Func = x.ID
-                  })
-                  .ToList();
+                    .Where(x => EF.Functions.Like(x.Nome, txtNomeFunc.Text + "%"))
+                    .Select(x => new VeiculoDto
+                    {
+                        Motorista = x.Nome,
+                        ID_Func = x.ID
+                    })
+                    .ToList();
 
                 if (buscar != null && buscar.Any())
                 {
-                    // Atualiza o ItemsSource do DataGrid com a lista 'buscar'
                     dataGridFuncionários.ItemsSource = buscar;
-
                 }
-
-
                 else
                 {
-                    MessageBox.Show("Funcionário não foi encontrado", "erro", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show("Funcionário não foi encontrado", "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
-
             }
         }
+
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             using (Context context = new())
             {
-                var selectedItem = dataGridFuncionários.SelectedItem as VeiculoDto;
-                if (!txtNomeFunc.Text.IsNullOrEmpty() && !txtModelo.Text.IsNullOrEmpty() && !txtPlaca.Text.IsNullOrEmpty())
+                if (update && _item != null)
                 {
-                    try
+                    var veiculoExistente = context.Veiculos.FirstOrDefault(v => v.Motorista == _item.Motorista && v.Placa == _item.Placa);
+                    if (veiculoExistente != null)
                     {
-                        var newVeiculo = new Veiculo
+                        if (!string.IsNullOrEmpty(txtNomeFunc.Text) && !string.IsNullOrEmpty(txtModelo.Text) &&
+                            !string.IsNullOrEmpty(txtPlaca.Text) && !string.IsNullOrEmpty(comboBoxVeiculo.Text))
                         {
-                            Placa = txtPlaca.Text,
-                            Tipo = comboBoxVeiculo.Text,
-                            Modelo = txtModelo.Text,
-                            Motorista = selectedItem.Motorista,
-                            IDFunc = selectedItem.ID_Func
-                        };
+                            veiculoExistente.Modelo = txtModelo.Text.ToUpper();
+                            veiculoExistente.Placa = txtPlaca.Text.ToUpper();
+                            veiculoExistente.Motorista = txtNomeFunc.Text.ToUpper();
+                            veiculoExistente.Tipo = comboBoxVeiculo.Text.ToUpper();
+                            veiculoExistente.UserAdd = MainWindow.UsuarioLogado.ToUpper();
 
-                        context.Veiculos.Add(newVeiculo);
+                            try
+                            {
+                                context.SaveChanges();
 
-                        context.SaveChanges();
+                                // Dispara o evento com o veículo atualizado
 
-                        MessageBox.Show("Veiculo incluido com Sucesso!!", "Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
-                    }
-                    catch
-                    {
-                        MessageBox.Show("Erro ao incluir veiculo", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+
+                                MessageBox.Show("Atualizado com sucesso", "Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
+                                this.Close();
+                            }
+                            catch
+                            {
+                                MessageBox.Show("Erro ao atualizar", "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Nenhum campo pode ser vazio", "Informação", MessageBoxButton.OK, MessageBoxImage.Error);
+                        }
                     }
                 }
-
                 else
                 {
-                    MessageBox.Show("Nenhum campo pode ser vazio","Information",MessageBoxButton.OK, MessageBoxImage.Error);
-                }
+                    var selectedItem = dataGridFuncionários.SelectedItem as VeiculoDto;
+                    if (!string.IsNullOrEmpty(txtNomeFunc.Text) && !string.IsNullOrEmpty(txtModelo.Text) &&
+                        !string.IsNullOrEmpty(txtPlaca.Text) && selectedItem != null)
+                    {
+                        try
+                        {
+                            if (context.Veiculos.Any(v => v.Placa.ToUpper().Trim() == txtPlaca.Text.ToUpper().Trim()))
+                            {
+                                MessageBox.Show("Este Veículo já foi cadastrado","Erro",MessageBoxButton.OK,MessageBoxImage.Error);
+                                return;
+                            }
 
+                            var newVeiculo = new Veiculo
+                            {
+                                Placa = txtPlaca.Text?.ToUpper(),
+                                Tipo = comboBoxVeiculo.Text.ToUpper(),
+                                Modelo = txtModelo.Text?.ToUpper(),
+                                Motorista = selectedItem.Motorista?.ToUpper(),
+                                IDFunc = selectedItem.ID_Func,
+                                UserAdd = MainWindow.UsuarioLogado.ToUpper()
+                            };
+
+                            context.Veiculos.Add(newVeiculo);
+                            context.SaveChanges();
+
+                            // Dispara o evento com o veículo adicionado
+
+
+                            MessageBox.Show("Veículo incluído com sucesso!", "Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
+                            this.Close();
+                        }
+                        catch
+                        {
+                            MessageBox.Show("Erro ao incluir veículo", "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Nenhum campo pode ser vazio", "Informação", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                }
             }
         }
 
         private void dataGridFuncionários_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var selectedItem = dataGridFuncionários.SelectedItem as VeiculoDto;
-
             if (selectedItem != null)
             {
-                // Joga o nome do motorista no TextBox
-                txtNomeFunc.Text = selectedItem.Motorista;
-                
+                txtNomeFunc.Text = selectedItem.Motorista.ToUpper();
             }
         }
+
+    
     }
 }

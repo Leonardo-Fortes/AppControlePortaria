@@ -6,13 +6,14 @@
         xmlns:local="clr-namespace:AppPortariaControle.Views"
         mc:Ignorable="d"
         Title="Cadastrar Prestador de Serviços" MaxHeight="195" MaxWidth="730" MinHeight="195" MinWidth="730"
-        WindowStartupLocation="CenterScreen">
+        WindowStartupLocation="CenterScreen"
+         Icon="/Imagens/icon-default.png">
     <Grid Margin="10">
         <Label Content="Nome" Width="60" FontSize="16" VerticalAlignment="Top" HorizontalAlignment="Left"></Label>
         <TextBox  x:Name="txtCadName" Width="590" Height="22" FontSize="16" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="100,9,0,0"></TextBox>
         <Label Content="Documento" Width="100" FontSize="16" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,30,0,0"></Label>
         <TextBox Name="txtCadDoc" Width="140" Height="22" FontSize="16" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="170,36,0,0"></TextBox>
-        <Button Width="70" Height="25" FontSize="13" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="620,102,0,0" Content="Cadastrar" Click="BtnCadastro_Click" RenderTransformOrigin="0.786,0.562"></Button>
+        <Button Width="70" Height="25" FontSize="13" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="620,102,0,0" Content="Confirmar" Click="BtnCadastro_Click" RenderTransformOrigin="0.786,0.562"></Button>
 
 
         <ComboBox Name="comboBoxDocumento" HorizontalAlignment="Left" Margin="100,36,0,0" VerticalAlignment="Top" Width="60" Height="22" FontSize="12" FontWeight="Bold" SelectionChanged="ComboBox_SelectionChanged">

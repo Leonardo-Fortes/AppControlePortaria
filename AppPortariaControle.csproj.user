@@ -7,6 +7,15 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="ViewsUI\DadosEmpresa.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="ViewsUI\DataExportExcel.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="ViewsUI\Page1.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\AddEmpPrestadora.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -16,23 +25,23 @@
     <Compile Update="Views\AdicionarVeiculo.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\ControleInterno.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Views\ControleVisitante.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="Views\ColabReponsavel.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Home.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Views\ListarEmpresas.xaml.cs">
+    <Compile Update="ViewsUI\HomeVeiculos.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="ViewsUI\DadosEmpresa.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ViewsUI\DataExportExcel.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ViewsUI\Page1.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Views\AddEmpPrestadora.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -42,22 +51,13 @@
     <Page Update="Views\AdicionarVeiculo.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\ControleInterno.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Views\ControleVisitante.xaml">
-      <SubType>Designer</SubType>
-    </Page>
     <Page Update="Views\ColabReponsavel.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Home.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Views\ListarEmpresas.xaml">
-      <SubType>Designer</SubType>
-    </Page>
     <Page Update="Views\MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ViewsUI\HomeVeiculos.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

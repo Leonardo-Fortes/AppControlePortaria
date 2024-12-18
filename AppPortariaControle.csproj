@@ -9,30 +9,95 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Fonts\WorkSans-Light.ttf" />
+    <None Remove="Imagens\cadastro-1.png" />
+    <None Remove="Imagens\edicao.png" />
+    <None Remove="Imagens\entrou.png" />
+    <None Remove="Imagens\entry.png" />
+    <None Remove="Imagens\exit.png" />
+    <None Remove="Imagens\icon-default.ico" />
+    <None Remove="Imagens\icon-default.png" />
     <None Remove="Imagens\icon-pesquisa.png" />
     <None Remove="Imagens\icon-user.png" />
     <None Remove="Imagens\icone-senha.png" />
+    <None Remove="Imagens\list.jpg" />
+    <None Remove="Imagens\listagem.png" />
+    <None Remove="Imagens\list_3600.png" />
+    <None Remove="Imagens\lixeira.png" />
+    <None Remove="Imagens\logo-embaquim-index.png" />
+    <None Remove="Imagens\logo-embaquim-teste.png" />
     <None Remove="Imagens\logo2.png" />
     <None Remove="Imagens\LOGO_EMBAQUIM.jpg" />
+    <None Remove="Imagens\Logo_Novo.png" />
     <None Remove="Imagens\logo_v2.png" />
+    <None Remove="Imagens\menu-aberto.png" />
+    <None Remove="Imagens\Neww_logo.png" />
+    <None Remove="Imagens\New_Logo.png" />
+    <None Remove="Imagens\saiu.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="EPPlus" Version="7.4.1" />
+    <PackageReference Include="FuzzySharp" Version="2.0.2" />
+    <PackageReference Include="MahApps.Metro.IconPacks" Version="5.1.0" />
+    <PackageReference Include="MaterialDesignColors" Version="3.1.0" />
+    <PackageReference Include="MaterialDesignThemes" Version="5.1.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.8" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.8" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.8">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="SqlTableDependency" Version="8.5.8" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.6" />
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Fonts\WorkSans-Light.ttf" />
+    <Resource Include="Imagens\cadastro-1.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Imagens\edicao.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Imagens\entrou.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Imagens\entry.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Imagens\exit.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Imagens\icon-default.ico">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Imagens\icon-default.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Imagens\icon-pesquisa.png" />
     <Resource Include="Imagens\icon-user.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Imagens\icone-senha.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Imagens\list.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Imagens\listagem.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Imagens\list_3600.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Imagens\lixeira.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Imagens\logo-embaquim-index.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Imagens\logo-embaquim-teste.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Imagens\logo2.png">
@@ -41,7 +106,22 @@
     <Resource Include="Imagens\LOGO_EMBAQUIM.jpg">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Imagens\Logo_Novo.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Imagens\logo_v2.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Imagens\menu-aberto.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Imagens\Neww_logo.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Imagens\New_Logo.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Imagens\saiu.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>

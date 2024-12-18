@@ -24,9 +24,16 @@ namespace AppPortariaControle.Dal
         [Column("RG")]
         public string? RG { get; set; }
 
+        [Column("UserAdd")]
+        public string UserAdd { get; set; } = string.Empty;
+
+        [Column("DataAdd")]
+        public DateTime DataAdd { get; set; } = DateTime.UtcNow;
+
         [ForeignKey("PrestadorServicoEmp")]
         [Column("ID_Emp")]
         public int ID_Emp { get; set; }
+
 
         public PrestadorServicoEmp? PrestadorServicoEmp { get; set; }
 

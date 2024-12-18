@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:AppPortariaControle.Views"
         mc:Ignorable="d"
          Title="Cadastrar Empresa Prestadora de Serviços" MaxHeight="140" MaxWidth="600" MinHeight="140" MinWidth="600"
- WindowStartupLocation="CenterScreen">
+ WindowStartupLocation="CenterScreen"
+         Icon="/Imagens/icon-default.png">
     <Grid>
         <Label Content="Nome" Width="60" FontSize="16" VerticalAlignment="Top" HorizontalAlignment="Left"></Label>
         <TextBox  x:Name="txtCadNameEmp" Width="500" Height="22" FontSize="16" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="60,6,0,0"></TextBox>

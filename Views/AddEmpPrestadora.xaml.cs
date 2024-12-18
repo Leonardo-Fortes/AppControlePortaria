@@ -45,7 +45,8 @@ namespace AppPortariaControle.Views
                         var add = new PrestadorServicoEmp()
                         {
                             NomeEmp = txtCadNameEmp.Text,
-                            CNPJ = txtCadCNPJEmp.Text
+                            CNPJ = txtCadCNPJEmp.Text,
+                            UserAdd = MainWindow.UsuarioLogado
                         };
 
 
@@ -62,6 +63,11 @@ namespace AppPortariaControle.Views
                             }).FirstOrDefault();
                             AddFuncPrestador addFunc = new(txtCadNameEmp.Text, idResult.ID);
                             addFunc.Show();
+                            this.Hide();
+                        }
+                        else
+                        {
+                            MessageBox.Show($"Empresa {add.NomeEmp} cadastrada com sucesso", "Sucesso", MessageBoxButton.OK,MessageBoxImage.Information);
                             this.Hide();
                         }
 
