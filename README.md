@@ -1,29 +1,26 @@
     Tela De Acesso
-![image](https://github.com/user-attachments/assets/906fb1f9-e2e8-4df2-bf4f-f44142c8cef7)
+![image](https://github.com/user-attachments/assets/f25e480d-d6e2-4834-b839-2bc670a35889)
 
-    Controle Interno - Obj Buscar a placa através das iniciais, e assim podendo registrar a entrada e saída (Seguindo regra de negócio em que, só pode registrar a saída caso já tiver um registro de entrada),
 
-![image](https://github.com/user-attachments/assets/21e69779-6e82-47ab-80d1-0e7fdf994857)
+    Controle Interno (HOME) - Obj Buscar a placa através das iniciais, contendo 5 botões sendo eles, adicionar veículos, adicionar funcionários, exit - para auxiliar puxando os veículos que estão permitidos sair, entry - para auxilar puxandos os veículos ques estão permitido a entrar, e exportar excel e contendo dois botões no datagrid para edição e exclusão.
 
-    Cadastro Veiculo - Onde o usuário deve inserir a placa, o tipo sendo carro ou moto e o modelo, por fim inserir a qual funcionário o veiculo pertence.
+![image](https://github.com/user-attachments/assets/a719ffb6-8833-47c3-846b-040221494c1e)
 
-![image](https://github.com/user-attachments/assets/b61749b3-7102-4484-8530-40c870f39d17)
+    Cadastro Veiculo - Onde o usuário deve inserir a placa, o tipo sendo carro ou moto e o modelo, por fim inserir a qual funcionário o veiculo pertence. 
 
-    Controle Visitantes - Mesma ideia do controle interno, digitar iniciais da empresa e registrar entrada ou saida eventualmente.
+![image](https://github.com/user-attachments/assets/c465afd9-1ae3-42a4-b989-ce2c9357cbd7)
 
-![image](https://github.com/user-attachments/assets/684956a9-040d-4534-886f-1b04c0a995eb)
+    Export Excel
+![image](https://github.com/user-attachments/assets/ae5e69bf-e278-438b-a6a5-dcd4f5281784)
 
-    Cadastro de Empresa - Cadastro de empresa sendo obrigátio o Nome, CNPJ é opcional
-  
-![image](https://github.com/user-attachments/assets/bab1d1df-9647-47af-ada2-ed0f3bb51c21)
+    Controle Visitantes - Mesma ideia do controle interno, digitar iniciais da empresa e registrar entrada ou saida eventualmente, contendo os botões para, listar empresas, adicionar empresas, filtrar empresas que permanecem dentro, e export excel
 
-    Cadastro Prestador de Serviço - Cadastro prestador, sendo obrigatório o Nome, Documento sendo eles RG ou CPF, e buscar pela Empresa caso ela já exista.
+![image](https://github.com/user-attachments/assets/e4185e98-8326-401e-a8ce-aeab73a29654)
 
-![image](https://github.com/user-attachments/assets/e7e0f024-bc1a-4004-a50d-9bb1e46332e7)
+    Efetuando duplo click em cima da empresa, abre a página para cadastrar os funcionários referente a está empresa, onde contem as opções de (editar, excluir e dar entrada ou saída)
+![image](https://github.com/user-attachments/assets/8a82f005-8f01-45f8-b1c4-7a73459f24e7)
 
-    Listar Empresas - Uma aba para listar todas empresas já cadastradas ou uma especifica
 
-![image](https://github.com/user-attachments/assets/c3b69a4d-9979-48b5-858e-d6bf4648a639)
 
 
 
